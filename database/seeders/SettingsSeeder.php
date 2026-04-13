@@ -2,26 +2,23 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Settings;
 
 class SettingsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run()
+    public function run(): void
     {
-        $users = User::all();
+        $user = User::where('email', 'test@example.com')->first();
 
-        foreach ($users as $user) {
-            Settings::create([
-                'theme' => 'dark',
-                'lang' => 'fr',
-                'user_id' => $user->id,
-            ]);
-        }
+        $user->settings()->create([
+            'theme' => 'dark',
+            'lang'  => 'fr'
+        ]);
+
+        $this->call([
+        SettingsSeeder::class,
+        ]);
     }
 }

@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Settings extends Model
+class Order extends Model
 {
     protected $fillable = [
-        'theme',
-        'lang',
+        'amount',
+        'status',
         'user_id',
     ];
 
@@ -17,4 +17,3 @@ class Settings extends Model
         return $this->belongsTo(User::class);
     }
 }
-
