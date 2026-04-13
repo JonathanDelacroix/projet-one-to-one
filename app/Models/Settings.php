@@ -8,8 +8,7 @@ class Settings extends Model
 {
     protected $fillable = [
         'theme',
-        'lang',
-        'user_id',
+        'lang'
     ];
 
     public function user()
