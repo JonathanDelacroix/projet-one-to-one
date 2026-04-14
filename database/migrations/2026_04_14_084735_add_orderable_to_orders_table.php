@@ -12,8 +12,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->unsignedBigInteger('orderable_id')->nullable();
-            $table->string('orderable_type')->nullable();
+            $table->morphs('orderable');
         });
     }
 
